@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0f0f14;
+  --surface: #1a1a24;
+  --surface2: #22222f;
+  --accent: #c084fc;
+  --accent2: #f472b6;
+  --text: #e8e8f0;
+  --text-muted: #6b6b80;
+  --bubble-user: #2d1f4e;
+  --bubble-ai: #1e2a3a;
+  --radius: 18px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 16px;
+  gap: 12px;
+}
+
+/* Chat Window */
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface2) transparent;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background: var(--surface2);
+  border-radius: 4px;
+}
+
+/* Chat Bubbles */
+.bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 72%;
+  gap: 4px;
+}
+
+.bubble-wrapper.user {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+.bubble-wrapper.ai {
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+.bubble {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.bubble-wrapper.user .bubble {
+  background: var(--bubble-user);
+  border-bottom-right-radius: 4px;
+  color: #d8b4fe;
+}
+
+.bubble-wrapper.ai .bubble {
+  background: var(--bubble-ai);
+  border-bottom-left-radius: 4px;
+  color: var(--text);
+}
+
+.bubble-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 0 4px;
+}
