@@ -37,6 +37,15 @@ body {
   gap: 12px;
 }
 
+/* Chat Wrapper */
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  overflow: hidden;
+}
+
 /* Chat Window */
 .chat-window {
   flex: 1;
@@ -52,6 +61,7 @@ body {
 .chat-window::-webkit-scrollbar {
   width: 4px;
 }
+
 .chat-window::-webkit-scrollbar-thumb {
   background: var(--surface2);
   border-radius: 4px;
@@ -99,4 +109,90 @@ body {
   font-size: 11px;
   color: var(--text-muted);
   padding: 0 4px;
+}
+
+/* Input Bar */
+.input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--surface2);
+}
+
+.input-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+
+.send-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.send-button:hover {
+  opacity: 0.85;
+}
+
+/* Mic Button */
+.mic-button {
+  background: var(--surface2);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.mic-button:hover {
+  background: var(--accent);
+}
+
+.mic-button.recording {
+  background: #ef4444;
+  animation: pulse 1s infinite;
+}
+
+.mic-button.processing {
+  background: var(--surface2);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
 }
